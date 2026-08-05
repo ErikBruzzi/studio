@@ -460,6 +460,7 @@
       </div>
 
       <form id="contactForm">
+        <input type="hidden" name="_subject" value="Novo contato pelo site — studio.">
         <div class="form-row">
           <div class="field">
             <label for="nome">Nome</label>
@@ -483,8 +484,8 @@
           <label for="mensagem">Mensagem</label>
           <textarea id="mensagem" name="mensagem" placeholder="Conta um pouco sobre o seu projeto..." required></textarea>
         </div>
-        <button type="submit" class="submit-btn">Enviar mensagem</button>
-        <p class="form-note">Ao enviar, o WhatsApp abrirá com a mensagem pronta.</p>
+        <button type="submit" class="submit-btn" id="submitBtn">Enviar mensagem</button>
+        <p class="form-note" id="formNote">Seus dados ficam registrados e Erik recebe um e-mail com seu contato.</p>
       </form>
     </div>
   </div>
@@ -505,19 +506,52 @@
 </footer>
 
 <script>
-  document.getElementById('contactForm').addEventListener('submit', function(e){
+  // ⚠️ IMPORTANTE: troque "SEU_FORM_ID" abaixo pelo ID gerado no Formspree
+  // (formspree.io -> New Form -> copie o endereço https://formspree.io/f/xxxxxxx)
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xppazywl';
+
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('submitBtn');
+  const note = document.getElementById('formNote');
+
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
+
+    if (FORMSPREE_ENDPOINT.includes('SEU_FORM_ID')) {
+      note.textContent = 'Formulário ainda não conectado — configure o Formspree para ativar o envio.';
+      note.style.color = '#FF6B4A';
+      return;
+    }
+
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
     const tipo = document.getElementById('tipo').value;
     const mensagem = document.getElementById('mensagem').value;
-    const texto = encodeURIComponent(
-      'Olá, Erik! Meu nome é ' + nome + '.\n' +
-      'E-mail: ' + email + '\n' +
-      'Tipo de projeto: ' + tipo + '\n\n' +
-      'Mensagem: ' + mensagem
-    );
-    window.open('https://wa.me/5531998588382?text=' + texto, '_blank');
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (response.ok) {
+        form.reset();
+        note.textContent = 'Mensagem enviada! Erik vai receber seus dados e entrar em contato em breve.';
+        note.style.color = '#8FD19E';
+        btn.textContent = 'Enviado ✓';
+      } else {
+        throw new Error('Falha no envio');
+      }
+    } catch (err) {
+      note.textContent = 'Algo deu errado. Tente novamente ou chame no WhatsApp.';
+      note.style.color = '#FF6B4A';
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensagem';
+    }
   });
 </script>
 
