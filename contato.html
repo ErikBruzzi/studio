@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — Peça um Orçamento | studio.</title>
+<meta name="description" content="Fale com Erik Bruzzi sobre o seu projeto de site, landing page ou interface de app. Resposta em até 48 horas.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://studioservice.netlify.app/contato.html">
+
+<meta property="og:title" content="Contato — Peça um Orçamento | studio.">
+<meta property="og:description" content="Fale com Erik Bruzzi sobre o seu projeto de site, landing page ou interface de app. Resposta em até 48 horas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://studioservice.netlify.app/contato.html">
+<meta property="og:image" content="https://studioservice.netlify.app/og-image.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contato — Peça um Orçamento | studio.">
+<meta name="twitter:image" content="https://studioservice.netlify.app/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://studioservice.netlify.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Contato", "item": "https://studioservice.netlify.app/contato.html" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">studio<span>.</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="trabalhos.html">Trabalhos</a>
+      <a href="processo.html">Processo</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contato.html" class="active">Contato</a>
+    </div>
+    <a href="contato.html" class="nav-cta">Fale comigo</a>
+  </nav>
+</header>
+
+<div class="wrap breadcrumb">
+  <a href="index.html">Home</a><span class="sep">/</span><span class="current">Contato</span>
+</div>
+
+<section class="contact" style="padding-top:36px;">
+  <div class="wrap">
+    <div class="contact-box">
+      <div class="contact-left">
+        <div class="eyebrow"><span class="cursor"></span>&lt;CONTATO/&gt;</div>
+        <h1>Vamos construir seu próximo projeto</h1>
+        <p>Me conta um pouco sobre sua ideia e eu retorno com os próximos passos — geralmente em até 48 horas.</p>
+        <div class="contact-direct">
+          <a href="https://wa.me/5531998588382" target="_blank" rel="noopener"><span class="ic">↗</span> (31) 99858-8382</a>
+          <a href="https://instagram.com/bruzziodev" target="_blank" rel="noopener"><span class="ic">◎</span> @bruzziodev</a>
+        </div>
+      </div>
+
+      <form id="contactForm">
+        <input type="hidden" name="_subject" value="Novo contato pelo site — studio.">
+        <div class="form-row">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="voce@email.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="tipo">Tipo de projeto</label>
+          <select id="tipo" name="tipo">
+            <option>Site institucional</option>
+            <option>Landing page</option>
+            <option>Interface de app</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Conta um pouco sobre o seu projeto..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">Enviar mensagem</button>
+        <p class="form-note" id="formNote">Seus dados ficam registrados e Erik recebe um e-mail com seu contato.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-left">
+      <div class="footer-mark">E</div>
+      <span>Erik Bruzzi — Dev &amp; Web Designer</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://instagram.com/bruzziodev" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5531998588382" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="contato.html">Contato</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xppazywl';
+
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('submitBtn');
+  const note = document.getElementById('formNote');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (response.ok) {
+        form.reset();
+        note.textContent = 'Mensagem enviada! Erik vai receber seus dados e entrar em contato em breve.';
+        note.style.color = '#8FD19E';
+        btn.textContent = 'Enviado ✓';
+      } else {
+        throw new Error('Falha no envio');
+      }
+    } catch (err) {
+      note.textContent = 'Algo deu errado. Tente novamente ou chame no WhatsApp.';
+      note.style.color = '#FF6B4A';
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensagem';
+    }
+  });
+</script>
+
+</body>
+</html>
