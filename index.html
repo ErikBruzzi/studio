@@ -3,7 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>studio. — Web Dev &amp; UI Design</title>
+<title>studio. — Sites, Landing Pages e Apps | Erik Bruzzi</title>
+<meta name="description" content="Desenvolvimento e design de sites institucionais, landing pages e interfaces de app. Erik Bruzzi cria presença digital que gera confiança e clientes.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://studioservice.netlify.app/">
+
+<meta property="og:title" content="studio. — Sites, Landing Pages e Apps | Erik Bruzzi">
+<meta property="og:description" content="Desenvolvimento e design de sites institucionais, landing pages e interfaces de app que unem design com propósito e código bem feito.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://studioservice.netlify.app/">
+<meta property="og:image" content="https://studioservice.netlify.app/og-image.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="studio. — Sites, Landing Pages e Apps | Erik Bruzzi">
+<meta name="twitter:description" content="Desenvolvimento e design de sites institucionais, landing pages e interfaces de app que unem design com propósito e código bem feito.">
+<meta name="twitter:image" content="https://studioservice.netlify.app/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://studioservice.netlify.app/#pessoa",
+      "name": "Erik Bruzzi",
+      "jobTitle": "Desenvolvedor Web e Web Designer",
+      "description": "Desenvolvedor e designer especializado em sites institucionais, landing pages e interfaces de aplicativos web.",
+      "knowsAbout": ["Desenvolvimento Web", "UI Design", "UX Design", "Landing Pages", "Interfaces de Aplicativos"],
+      "knowsLanguage": ["pt-BR"],
+      "worksFor": { "@id": "https://studioservice.netlify.app/#organizacao" },
+      "url": "https://studioservice.netlify.app/",
+      "sameAs": ["https://instagram.com/bruzziodev"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://studioservice.netlify.app/#organizacao",
+      "name": "studio.",
+      "url": "https://studioservice.netlify.app/",
+      "founder": { "@id": "https://studioservice.netlify.app/#pessoa" },
+      "areaServed": { "@type": "Country", "name": "Brasil" },
+      "knowsAbout": ["Sites institucionais", "Landing pages", "Interfaces de aplicativos"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+5531998588382",
+        "availableLanguage": ["Portuguese"]
+      },
+      "sameAs": ["https://instagram.com/bruzziodev"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://studioservice.netlify.app/#website",
+      "url": "https://studioservice.netlify.app/",
+      "name": "studio.",
+      "publisher": { "@id": "https://studioservice.netlify.app/#organizacao" },
+      "inLanguage": "pt-BR"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto custa um site institucional?",
+          "acceptedAnswer": { "@type": "Answer", "text": "O valor varia com escopo e número de páginas. Envie os detalhes do seu projeto pelo formulário de contato para um orçamento exato." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto tempo leva para desenvolver uma landing page?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Uma landing page com escopo definido costuma ficar pronta em poucas semanas, do briefing até a publicação." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre site institucional e landing page?",
+          "acceptedAnswer": { "@type": "Answer", "text": "O site institucional apresenta a empresa como um todo, com várias seções. A landing page foca em um único objetivo, como captar um lead ou vender um produto específico." }
+        },
+        {
+          "@type": "Question",
+          "name": "Você atende clientes fora da sua cidade?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sim, todo o processo é feito remotamente, por chamada de vídeo e mensagens, do briefing até a entrega." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -191,7 +275,7 @@
     font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--coral-soft);
     letter-spacing:0.06em; text-transform:uppercase; margin-bottom:8px; display:block;
   }
-  .work-body h4{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px; margin-bottom:6px; }
+  .work-body h3{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px; margin-bottom:6px; }
   .work-body p{ font-size:13.5px; color:var(--lilac); }
 
   /* ---------- PROCESS ---------- */
@@ -204,8 +288,24 @@
     width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center;
     margin-bottom:18px;
   }
-  .process-step h4{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:16.5px; margin-bottom:8px; }
+  .process-step h3{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:16.5px; margin-bottom:8px; }
   .process-step p{ font-size:13.5px; color:var(--lilac); line-height:1.55; }
+
+  /* ---------- FAQ ---------- */
+  .faq{ padding:0 0 120px; }
+  .faq-list{ display:flex; flex-direction:column; gap:14px; max-width:760px; }
+  .faq-item{
+    border:1px solid var(--line); background:rgba(239,237,250,0.03);
+    border-radius:16px; padding:26px 28px;
+  }
+  .faq-item h3{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    margin-bottom:10px; display:flex; align-items:baseline; gap:10px;
+  }
+  .faq-item h3::before{
+    content:"?"; color:var(--coral); font-weight:700; flex-shrink:0;
+  }
+  .faq-item p{ color:var(--lilac); font-size:14.5px; line-height:1.65; padding-left:22px; }
 
   /* ---------- CONTACT ---------- */
   .contact{ padding:0 0 130px; }
@@ -289,6 +389,7 @@
       <a href="#servicos">Serviços</a>
       <a href="#trabalhos">Trabalhos</a>
       <a href="#processo">Processo</a>
+      <a href="#faq">FAQ</a>
       <a href="#contato">Contato</a>
     </div>
     <a href="#contato" class="nav-cta">Fale comigo</a>
@@ -388,7 +489,7 @@
         </div>
         <div class="work-body">
           <span class="tag">Site institucional</span>
-          <h4>Escritório de advocacia</h4>
+          <h3>Escritório de advocacia</h3>
           <p>Site completo com foco em credibilidade e agendamento de consultas.</p>
         </div>
       </div>
@@ -399,7 +500,7 @@
         </div>
         <div class="work-body">
           <span class="tag">Landing page</span>
-          <h4>Lançamento de produto fitness</h4>
+          <h3>Lançamento de produto fitness</h3>
           <p>Página de conversão com foco em captação de leads e vendas diretas.</p>
         </div>
       </div>
@@ -410,7 +511,7 @@
         </div>
         <div class="work-body">
           <span class="tag">Interface de app</span>
-          <h4>Aplicativo de agendamentos</h4>
+          <h3>Aplicativo de agendamentos</h3>
           <p>Design de interface mobile para gestão de horários e clientes.</p>
         </div>
       </div>
@@ -428,23 +529,51 @@
     <div class="process-grid">
       <div class="process-step">
         <div class="n">01</div>
-        <h4>Briefing</h4>
+        <h3>Briefing</h3>
         <p>Entendo seu negócio, objetivos e público antes de qualquer linha de design.</p>
       </div>
       <div class="process-step">
         <div class="n">02</div>
-        <h4>Design</h4>
+        <h3>Design</h3>
         <p>Crio o layout e a identidade visual, com espaço para seus ajustes e feedback.</p>
       </div>
       <div class="process-step">
         <div class="n">03</div>
-        <h4>Desenvolvimento</h4>
+        <h3>Desenvolvimento</h3>
         <p>Transformo o design em um site rápido, responsivo e funcional.</p>
       </div>
       <div class="process-step">
         <div class="n">04</div>
-        <h4>Entrega</h4>
+        <h3>Entrega</h3>
         <p>Publicação, testes finais e acompanhamento após o lançamento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Perguntas frequentes</span>
+      <h2>Antes de fechar, tire suas dúvidas</h2>
+      <p class="section-sub">As perguntas mais comuns de quem está pensando em contratar um site ou uma interface de app.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Quanto custa um site institucional?</h3>
+        <p>O valor varia com escopo e número de páginas. Envie os detalhes do seu projeto pelo formulário de contato abaixo para um orçamento exato.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Quanto tempo leva para desenvolver uma landing page?</h3>
+        <p>Uma landing page com escopo definido costuma ficar pronta em poucas semanas, do briefing até a publicação — o processo completo está detalhado na seção "Como funciona" acima.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Qual a diferença entre site institucional e landing page?</h3>
+        <p>O site institucional apresenta a empresa como um todo, com várias seções. A landing page foca em um único objetivo — captar um lead ou vender um produto específico — e costuma ter menos distrações.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Você atende clientes fora da sua cidade?</h3>
+        <p>Sim, todo o processo é feito remotamente — briefing, design e entrega acontecem por chamada de vídeo e mensagens, sem necessidade de encontro presencial.</p>
       </div>
     </div>
   </div>
