@@ -78,9 +78,9 @@
       <a href="trabalhos.html">Trabalhos</a>
       <a href="processo.html">Processo</a>
       <a href="faq.html">FAQ</a>
-      <a href="contato.html">Contato</a>
+      <a href="#contato">Contato</a>
     </div>
-    <a href="contato.html" class="nav-cta">Fale comigo</a>
+    <a href="#contato" class="nav-cta">Fale comigo</a>
   </nav>
 </header>
 
@@ -91,7 +91,7 @@
       <h1>Sites e interfaces que <span class="hl">fazem sua marca</span> ser lembrada.</h1>
       <p class="hero-sub">Desenvolvo sites institucionais, landing pages e interfaces de aplicativos que unem design com propósito e código bem feito — do briefing até o ar.</p>
       <div class="hero-btns">
-        <a href="contato.html" class="btn-primary">Começar meu projeto</a>
+        <a href="#contato" class="btn-primary">Começar meu projeto</a>
         <a href="trabalhos.html" class="btn-ghost">Ver trabalhos</a>
       </div>
       <div class="trust-row">
@@ -162,14 +162,46 @@
   </div>
 </section>
 
-<section class="cta-banner">
+<section class="contact" id="contato">
   <div class="wrap">
-    <div class="cta-box">
-      <div>
+    <div class="contact-box">
+      <div class="contact-left">
         <h2>Vamos construir seu próximo projeto</h2>
         <p>Me conta um pouco sobre sua ideia — o retorno costuma sair em até 48 horas.</p>
+        <div class="contact-direct">
+          <a href="https://wa.me/5531998588382" target="_blank" rel="noopener"><span class="ic">↗</span> (31) 99858-8382</a>
+          <a href="https://instagram.com/bruzziodev" target="_blank" rel="noopener"><span class="ic">◎</span> @bruzziodev</a>
+        </div>
       </div>
-      <a href="contato.html" class="btn-primary">Falar com Erik</a>
+
+      <form id="contactForm">
+        <input type="hidden" name="_subject" value="Novo contato pelo site — studio.">
+        <div class="form-row">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="voce@email.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="tipo">Tipo de projeto</label>
+          <select id="tipo" name="tipo">
+            <option>Site institucional</option>
+            <option>Landing page</option>
+            <option>Interface de app</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Conta um pouco sobre o seu projeto..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">Enviar mensagem</button>
+        <p class="form-note" id="formNote">Seus dados ficam registrados e Erik recebe um e-mail com seu contato.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -183,10 +215,47 @@
     <div class="footer-links">
       <a href="https://instagram.com/bruzziodev" target="_blank" rel="noopener">Instagram</a>
       <a href="https://wa.me/5531998588382" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="contato.html">Contato</a>
+      <a href="#contato">Contato</a>
     </div>
   </div>
 </footer>
+
+<script>
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xppazywl';
+
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('submitBtn');
+  const note = document.getElementById('formNote');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if (response.ok) {
+        form.reset();
+        note.textContent = 'Mensagem enviada! Erik vai receber seus dados e entrar em contato em breve.';
+        note.style.color = '#8FD19E';
+        btn.textContent = 'Enviado ✓';
+      } else {
+        throw new Error('Falha no envio');
+      }
+    } catch (err) {
+      note.textContent = 'Algo deu errado. Tente novamente ou chame no WhatsApp.';
+      note.style.color = '#FF6B4A';
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensagem';
+    }
+  });
+</script>
 
 </body>
 </html>
