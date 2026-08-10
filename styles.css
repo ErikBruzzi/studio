@@ -193,13 +193,10 @@ h2{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:36px; li
   background:rgba(239,237,250,0.03);
 }
 .work-thumb{
-  height:170px; background:var(--surface); position:relative; padding:16px;
+  height:190px; background:var(--surface); position:relative; overflow:hidden;
 }
-.work-thumb .mini-nav{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-.work-thumb .mini-logo{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:11px; color:var(--ink); }
-.work-thumb .mini-dots{ display:flex; gap:4px; }
-.work-thumb .mini-dots span{ width:5px;height:5px;border-radius:50%; background:rgba(24,20,37,0.18); display:block; }
-.work-thumb .mini-block{ height:60px; border-radius:8px; }
+.work-thumb img{ width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform .3s; }
+.work-card:hover .work-thumb img{ transform:scale(1.04); }
 .work-body{ padding:20px 22px 24px; }
 .work-body .tag{
   font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--coral-soft);
